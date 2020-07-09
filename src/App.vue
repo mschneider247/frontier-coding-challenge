@@ -16,6 +16,7 @@
               <div class="account-container-title" id="active-account-container-title">
                 <h3>Active</h3>
               </div>
+              <accounts :accounts="accounts"/>
               <div class="account-container active-account">
                 <ul class="account-data-list">
                   <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
@@ -76,7 +77,6 @@ export default {
   data() {
     return {
       accounts: [],
-      test: "This is a test, can I find this in state??",
     }
   },
   methods: {
