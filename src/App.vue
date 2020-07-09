@@ -65,12 +65,17 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+import Accounts from './components/Accounts.vue'
 
 export default {
   name: 'app',
   components: {
-    //HelloWorld
+    Accounts
+  },
+  data() {
+    return {
+      accounts: [],
+    }
   }
 }
 </script>
