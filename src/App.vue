@@ -153,10 +153,6 @@ footer {
 #inactive-account-container-title > h3 {
   color:#808080;
 }
-.account-container {
-  justify-self: center;
-  height: 5em;
-}
 .account-container-title {
   justify-self: center;
 }
