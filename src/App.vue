@@ -76,7 +76,21 @@ export default {
   data() {
     return {
       accounts: [],
+      test: "This is a test, can I find this in state??",
     }
+  },
+  methods: {
+    setAccounts: async function () {
+      try {
+        const data = await getAccounts();
+        this.accounts = data;
+      } catch (error) {
+        window.console.log('Error setting state', error)
+      }
+    }
+  },
+  created() {
+    this.setAccounts()
   }
 }
 </script>
