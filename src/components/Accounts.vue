@@ -17,9 +17,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .account-container {
   border: 2px solid red;
   justify-self: center;

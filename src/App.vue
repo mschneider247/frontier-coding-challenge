@@ -66,6 +66,7 @@
 
 <script>
 import Accounts from './components/Accounts.vue'
+import { getAccounts } from './apiCall';
 
 export default {
   name: 'app',
