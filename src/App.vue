@@ -2,31 +2,22 @@
   <div id="app">
     <body>
         <header>
-            <h1>Frontier customer accounts</h1>
+          <h1>Frontier customer accounts</h1>
         </header>
         <h2>Accounts</h2>
         <main>
           <section>
-            <section class="account-column grid" id="active-account-column">
-              <h3>Active</h3>
-              <accounts :accounts="accounts" :filter="0" :sortAccounts="sortAccounts"/>
-            </section>
-            <section class="account-column grid" id="overdue-account-column">
-              <div class="account-container-title" id="overdue-account-container-title">
-                <h3>Overdue</h3>
-              </div>
-              <accounts :accounts="accounts" :filter="2" :sortAccounts="sortAccounts"/>
-            </section>
-            <div class="account-column grid" id="inactive-account-column">
-              <div class="account-container-title" id="inactive-account-container-title">
-                <h3>Inactive</h3>
-              </div>
-              <accounts :accounts="accounts" :filter="1" :sortAccounts="sortAccounts"/>
-            </div>
+            <accounts :accounts="accounts" :filter="0" :sortAccounts="sortAccounts"/>
+          </section>
+          <section>
+            <accounts :accounts="accounts" :filter="2" :sortAccounts="sortAccounts"/>
+          </section>
+          <section>
+            <accounts :accounts="accounts" :filter="1" :sortAccounts="sortAccounts"/>
           </section>
         </main>
         <footer>
-          <!-- <p class="copy">&copy;<script>document.write(new Date().getFullYear())</script></p> -->
+          <p>{{this.time}}</p>
         </footer>
     </body>
   </div>
@@ -44,6 +35,7 @@ export default {
   data() {
     return {
       accounts: [],
+      time: '',
     }
   },
   methods: {
@@ -59,10 +51,16 @@ export default {
       return this.accounts.filter(account => {
         return account.AccountStatusId === filter;
       });
+    },
+    getDate: function () {
+      console.log("Get date.now function!!")
+      const date = Date(Date.now());
+      this.time = 'The time is:' + date.toString()
     }
   },
   created() {
-    this.setAccounts()
+    this.setAccounts();
+    this.getDate();
   },
   updated() {
     this.sortAccounts()
@@ -71,6 +69,15 @@ export default {
 </script>
 
 <style>
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+section {
+  width: 480px;
+  margin: 10px;
+  padding: 1%;
+}
 body {
   height: 100%;
   width: 100%;
@@ -91,25 +98,12 @@ h2 {
   height: 15px;
 }
 h3 {
-  display: block;
   font-size: 1.5em;
   color:#006643;
-}
-main {
-  display: flex;
 }
 footer {
   background-color:#006643;
   color: #fff;
-}
-#overdue-account-container-title > h3{
-  color: #B22222;
-}
-#inactive-account-container-title > h3 {
-  color:#808080;
-}
-.account-container-title {
-  justify-self: center;
 }
 .account-data-list {
   list-style: none;
@@ -121,9 +115,4 @@ footer {
   font-weight: bold;
   margin: 0 5px 0 0;
 }
-.copy {
-  place-self: end;
-  grid-row-start: 2;
-  grid-column-start: 2;
-}  
 </style>

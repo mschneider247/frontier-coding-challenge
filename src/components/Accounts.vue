@@ -1,5 +1,8 @@
 <template>
-  <section class="account-container" v-if='this.accounts.length'>
+  <article class="account-container" v-if='this.accounts.length'>
+    <h3 v-if="filter === 0">Active</h3>
+    <h3 v-if="filter === 2" id="overdue">Overdue</h3>
+    <h3 v-if="filter === 1" id="inactive">Inactive</h3>
     <ul v-for="account in sortAccounts(accounts, filter)" :key="account.id" class="account-data-list">
       <li><label>Name: </label>{{account.LastName}}, {{account.FirstName}}</li>
       <li><label>Email: </label>{{account.Email}}</li>
@@ -7,7 +10,7 @@
       <li><label>Amount Due: </label>{{account.AmountDue}}</li>
       <li><label>Due Date: </label>{{account.PaymentDueDate}}</li>
     </ul>
-  </section> 
+  </article> 
 </template>
 
 <script type="application/javascript">
@@ -29,11 +32,15 @@ ul {
   background-color: rgba(0, 146, 204, .2);
 }
 .account-container {
-  justify-self: center;
   height: 100%;
   background-color: rgba(0, 146, 204, .2);
   padding: 2%;
   border-radius: 2px;
-  max-width: 440px;
+}
+#overdue{
+  color: #B22222;
+}
+#inactive{
+  color:#808080;
 }
 </style>
