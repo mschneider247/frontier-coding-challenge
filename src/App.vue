@@ -53,9 +53,8 @@ export default {
       });
     },
     getDate: function () {
-      console.log("Get date.now function!!")
       const date = Date(Date.now());
-      this.time = 'The time is:' + date.toString()
+      this.time = 'The time is: ' + date.toString()
     }
   },
   created() {
@@ -102,6 +101,8 @@ h3 {
   color:#006643;
 }
 footer {
+  margin: 1%;
+  padding: 1%;
   background-color:#006643;
   color: #fff;
 }
