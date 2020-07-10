@@ -1,6 +1,6 @@
 <template>
   <section class="account-container" v-if='this.accounts.length'>
-    <ul v-for="account in accounts" :key="account.id" class="account-data-list">
+    <ul v-for="account in sortAccounts(accounts, filter)" :key="account.id" class="account-data-list">
       <li><label>Name: </label>{{account.LastName}}, {{account.FirstName}}</li>
       <li><label>Email: </label>{{account.Email}}</li>
       <li><label>Phone Number: </label>{{account.PhoneNumber}}</li>
@@ -13,7 +13,12 @@
 <script type="application/javascript">
 export default {
   name: 'Accounts',
-  props: ['accounts'],
+  props: {
+    accounts: Array,
+    filter: Number,
+    sortAccounts: Function,
+  },
+
 }
 </script>
 

@@ -16,29 +16,11 @@
               <div class="account-container-title" id="active-account-container-title">
                 <h3>Active</h3>
               </div>
-              <accounts :accounts="accounts"/>
-              <div class="account-container active-account">
-                <ul class="account-data-list">
-                  <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                  <li><label>Email:</label>{{Email}}</li>
-                  <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                  <li><label>Amount Due:</label>{{AmountDue}}</li>
-                  <li><label>Due Date:</label>{{DueDate}}</li>
-                </ul>
-              </div>     
+              <accounts :accounts="accounts" :filter="0" :sortAccounts="sortAccounts"/>
             </section>
             <section class="account-column grid" id="overdue-account-column">
               <div class="account-container-title" id="overdue-account-container-title">
                 <h3>Overdue</h3>
-              </div>
-              <div class="account-container overdue-account">
-                <ul class="account-data-list">
-                  <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                  <li><label>Email:</label>{{Email}}</li>
-                  <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                  <li><label>Amount Due:</label>{{AmountDue}}</li>
-                  <li><label>Due Date:</label>{{DueDate}}</li>
-                </ul>
               </div>
             </section>
             <div class="account-column grid" id="inactive-account-column">
@@ -87,10 +69,18 @@ export default {
       } catch (error) {
         window.console.log('Error setting state', error)
       }
+    },
+    sortAccounts: function (accounts, filter) {
+      return this.accounts.filter(account => {
+        return account.AccountStatusId === filter;
+      });
     }
   },
   created() {
     this.setAccounts()
+  },
+  updated() {
+    this.sortAccounts()
   }
 }
 </script>
