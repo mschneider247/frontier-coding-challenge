@@ -1,48 +1,33 @@
 <template>
   <div id="app">
     <body>
-      <section class="grid">
-        <header class="grid">
-          <div class="title-container">
-            <h1>Coding Test</h1>
-          </div>
+        <header>
+            <h1>Frontier customer accounts</h1>
         </header>
-        <main class="content grid" id="home-content">
-          <div class="content-title-container">
-            <h2>Accounts</h2>
-          </div>
-          <section class="grid" id="account-grid">
+        <h2>Accounts</h2>
+        <main>
+          <section>
             <section class="account-column grid" id="active-account-column">
-              <div class="account-container-title" id="active-account-container-title">
-                <h3>Active</h3>
-              </div>
+              <h3>Active</h3>
               <accounts :accounts="accounts" :filter="0" :sortAccounts="sortAccounts"/>
             </section>
             <section class="account-column grid" id="overdue-account-column">
               <div class="account-container-title" id="overdue-account-container-title">
                 <h3>Overdue</h3>
               </div>
+              <accounts :accounts="accounts" :filter="2" :sortAccounts="sortAccounts"/>
             </section>
             <div class="account-column grid" id="inactive-account-column">
               <div class="account-container-title" id="inactive-account-container-title">
                 <h3>Inactive</h3>
               </div>
-              <div class="account-container inactive-account">
-                <ul class="account-data-list">
-                  <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                  <li><label>Email:</label>{{Email}}</li>
-                  <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                  <li><label>Amount Due:</label>{{AmountDue}}</li>
-                  <li><label>Due Date:</label>{{DueDate}}</li>
-                </ul>
-              </div>
+              <accounts :accounts="accounts" :filter="1" :sortAccounts="sortAccounts"/>
             </div>
           </section>
         </main>
-        <footer class="grid">
+        <footer>
           <!-- <p class="copy">&copy;<script>document.write(new Date().getFullYear())</script></p> -->
         </footer>
-      </section>
     </body>
   </div>
 </template>
@@ -86,25 +71,15 @@ export default {
 </script>
 
 <style>
-/* html, body {
+body {
   height: 100%;
   width: 100%;
-  font-family: Roboto, Helvetica, Arial, sans-serif
-}
-article {
-  height: 100%;
-  grid-template-columns:1fr;
-  grid-template-areas:
-      "header"
-      "main"
-      "footer";
-  grid-template-rows: 100px 1fr 150px;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif
 }
 header {
-  grid-area: header;
   background-color:#006643;
+  padding: 4%;
   color: #fff;
-  grid-template-columns: 1% 98% 1%;
 }
 h1 {
   font-size: 3em;
@@ -113,6 +88,7 @@ h1 {
 h2 {
   font-size: 2em;
   color:#006643;
+  height: 15px;
 }
 h3 {
   display: block;
@@ -120,37 +96,11 @@ h3 {
   color:#006643;
 }
 main {
-  grid-area: main;
+  display: flex;
 }
 footer {
-  grid-area: footer;
   background-color:#006643;
   color: #fff;
-  grid-template-columns: 1% 98% 1%;
-  grid-template-rows: 5% 90% 5%;
-}
-.grid {
-  display: grid;
-}
-.title-container {
-  grid-column-start: 2;
-  align-self: center;
-}
-#home-content {
-  grid-row-gap: 25px;
-  grid-template-rows: 10px 100px auto;
-}
-#account-grid {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-row-start: 3;
-}
-.account-column {
-  grid-template-rows: 2em repeat(2, 10em);
-}
-.content-title-container {
-  justify-self: center;
-  height: 1em;
-  grid-row-start: 2;
 }
 #overdue-account-container-title > h3{
   color: #B22222;
@@ -175,6 +125,5 @@ footer {
   place-self: end;
   grid-row-start: 2;
   grid-column-start: 2;
-} */
+}  
 </style>
-

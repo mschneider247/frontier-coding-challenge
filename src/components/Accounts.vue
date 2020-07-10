@@ -23,8 +23,17 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  padding: 1%;
+  font-weight: 300;
+  background-color: rgba(0, 146, 204, .2);
+}
 .account-container {
   justify-self: center;
   height: 100%;
+  background-color: rgba(0, 146, 204, .2);
+  padding: 2%;
+  border-radius: 2px;
+  max-width: 440px;
 }
 </style>
