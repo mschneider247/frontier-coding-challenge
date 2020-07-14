@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath:'/frontier-code-challenge/'
+  publicPath: 'https://mschneider247.github.io/frontier-coding-challenge/'
 }
