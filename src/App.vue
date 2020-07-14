@@ -61,9 +61,6 @@ export default {
     this.setAccounts();
     this.getDate();
   },
-  updated() {
-    this.sortAccounts()
-  }
 }
 </script>
 
