@@ -89,6 +89,7 @@ h1 {
   font-weight: bold;
 }
 h2 {
+  margin-left: 20px;
   font-size: 2em;
   color:#006643;
   height: 15px;
@@ -98,7 +99,7 @@ h3 {
   color:#006643;
 }
 footer {
-  margin: 1%;
+  margin-top: 2%;
   padding: 1%;
   background-color:#006643;
   color: #fff;
