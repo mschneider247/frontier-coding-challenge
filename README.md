@@ -1,7 +1,6 @@
 # Frontier customer accounts or
 ## frontier-accounts-coding-challenge
 ### by: Michael Schneider
-#### [livesite](www.livesite.com)
 
 ## Summary
 
